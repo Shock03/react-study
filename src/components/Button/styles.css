@@ -1,0 +1,29 @@
+.containerButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    width: 150px;
+    height: 50px;
+    background-color: green;
+    color: black;
+    font-size: 25px;
+    border: none;
+    border-radius: 8px;
+}
+
+.disabledButton {
+    width: 150px;
+    height: 50px;
+    background-color: red;
+    color: black;
+    font-size: 25px;
+    border: none;
+    border-radius: 8px;
+}
+
+span {
+    display: block;
+}
