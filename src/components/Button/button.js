@@ -2,11 +2,13 @@
 import React from "react"
 import './styles.css'
 
-function Button(props) {
+// Desestruturando o props, chamando os objetos{} name, active, onClick
+function Button({ name, active, onClick }) {
+    
     return (
         // React.Fragments --> JSX
         <div className='containerButton'>
-            <button className = {props.active ? 'button' : 'disabledButton'}>{props.name}</button>           {/*props = parametro/propriedade | name = argumento*/}
+            <button onClick={onClick} className = {active ? 'button' : 'disabledButton'}>{name}</button>           {/*props = parametro/propriedade | name = argumento*/}
             <span>Seus dados estão a salvo conosco</span>    
         </div>
     )
