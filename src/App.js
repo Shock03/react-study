@@ -11,7 +11,7 @@ function App() {
     /*Primeiro item array (estado atual da pág/Hook), Segundo valor vai ser a função que vai alterar esse valor
     | por padrão colocar o valor atual com o set na frente
     --> HOOK (useState)*/
-    const [carregando, setCarregando] = useState(true)
+    const [carregando, setCarregando] = useState(true) // no useState passamos o valor inicial do estado, no caso, true 
 
 
   
@@ -34,7 +34,7 @@ function App() {
       {/*Chamando a função Button(button.js) através de uma TAG, graças ao Babel,
       disparando o evento com o onClick | onClick={() => evento()}*/}
       {carregando ? <span>Carregando...</span> : <Button name='Botão 1' active={true}/>}
-      <button onClick={() => setCarregando(false)}>Carregar site</button>
+      <button onClick={() => setCarregando(!carregando)}>{carregando ? 'Carregar site' : 'Voltar para carregamento'}</button>
     </div>
   );
 }
