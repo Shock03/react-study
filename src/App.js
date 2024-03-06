@@ -7,13 +7,40 @@ import Button from './components/Button/button';
 
 function App() {
 
-    /*Primeiro item array (estado atual da pág/Hook), Segundo valor vai ser a função que vai alterar esse valor
+    /*--> Primeiro item array (estado atual da pág/Hook), Segundo valor vai ser a função que vai alterar esse valor
     | por padrão colocar o valor atual com o set na frente
     --> HOOK (useState) & (useEffect)*/
     const [carregando, setCarregando] = useState(true) // no useState passamos o valor inicial do estado, no caso, true 
     const [contador, setContador] = useState(0)
 
-  
+    /*--> 1ª parametro será nosso callback, é o que vai ser executado assim que o array de dependencia for atualizado.
+      --> 2ª parametro será nosso array de dependencias. Irá informar ao useEffect() que tal estado foi atualizado.
+      Assim, executando o callback do primeiro parametro.*/
+      
+  /* --> 1ª ciclo de vida: useEffect será executado apenas a primeira vez que o componente for
+      renderizado em tela. Utilizamos o array de dependencia VAZIO. */
+    useEffect(() => {
+      console.log('Carregou pela primeira vez')
+    }, [])
+
+  /* --> 2ª ciclo de vida: useEffect será executado toda vez que o estado do contador
+      for atualizado. Ou seja, toda vez que o array de dependencia [contador] for atualizado. */
+  useEffect(() => {
+    console.log('Contador')
+  }, [contador])
+
+  /* --> 3ª ciclo de vida: o useEffect será executado e retornará o código (dentro do return),
+      assim que o componente for removido da tela.*/
+  useEffect(() => {
+    console.log('Ciclo de vida 3')
+
+    return () => {
+      // Vai está o código que vai ser executado assim que o componente for removido da tela.
+    }
+  }, [contador])
+
+
+
   /* -->Evento criado
   function evento() {
     alert('O evento foi disparado!')
