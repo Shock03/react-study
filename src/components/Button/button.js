@@ -2,7 +2,7 @@
 import React from "react"
 import './styles.css'
 
-// Desestruturando o props, chamando os objetos{} name, active, onClick
+// Desestruturando o props (propriedade da minha função react), chamando os objetos{} name, active, onClick --> Argumentos chamados no App.js
 function Button({ name, active, onClick }) {
     
     return (
